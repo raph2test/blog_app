@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+	</head>
+	<body>
+		<header class="navbar bg-danger text-light">
+			<h1>Blog App</h1>
+		</header><br/>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<a href="{% url 'blog:add-blog' %}" class="btn btn-secondary">Add New Blog</a>
+				</div>
+			</div>
+		</div><br/>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					{% for post in posts %}
+						<h3 class="mb-0">
+							<a class="text-danger" href="{% url 'blog:view-blog' post.id %}">{{ post.title }}</a>
+						</h3>
+						<small>
+							<a class="text-dark" href="{% url 'blog:update-blog' post.id %}">Edit</a>
+						</small>
+						<p>{{ post.body | slice:":400" }}...</p>
+						<hr/>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+	</head>
+	<body>
+		<header class="navbar bg-danger text-light">
+			<h2>Add New Blog</h2>
+		</header>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<form role="form" action="" method="POST">
+						{% csrf_token %}
+						<table class="table table-bordered table-striped">
+							<tbody>
+								<tr>
+									<th>Title</th>
+									<th class="form-control">{{ blog_form.title }}</th>
+								</tr>
+								<tr>
+									<th>Body</th>
+									<th class="form-control">{{ blog_form.body }}</th>
+								</tr>
+							</tbody>
+						</table>
+						<button type="submit" class="btn btn-danger">Save</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
